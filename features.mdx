@@ -1,0 +1,134 @@
+---
+title: Core Features of Tyler Durden
+description: Explore the main capabilities of Tyler Durden for efficient documentation organization and collaboration.
+---
+
+## Overview
+
+Tyler Durden provides powerful tools to create, organize, collaborate on, and manage your documentation projects. You streamline workflows with intuitive document creation, flexible organization, real-time collaboration, and robust search alongside version control.
+
+<Columns cols={2}>
+  <Card title="Document Creation" icon="edit-3" href="#document-creation">
+    Build rich docs with Markdown, embeds, and custom components.
+  </Card>
+  <Card title="Organization" icon="folder" href="#organization">
+    Structure content using folders, pages, and hierarchies.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Share, review, and co-edit with teams securely.
+  </Card>
+  <Card title="Search & Versions" icon="search" href="#search-versions">
+    Find content instantly and track changes over time.
+  </Card>
+</Columns>
+
+## Document Creation and Editing
+
+Create new documents directly from the dashboard. You access a full-featured editor supporting Markdown, JSX components, and embeds.
+
+<Steps>
+  <Step title="Create Document" icon="plus">
+    Click the `New Document` button in your workspace.
+  </Step>
+  <Step title="Edit Content" icon="edit">
+    Use the visual editor or switch to Markdown mode.
+  </Step>
+  <Step title="Add Components" icon="layers">
+    Insert `<Callout>`, `<Tabs>`, or code blocks via the toolbar.
+  </Step>
+  <Step title="Preview & Publish" icon="eye">
+    Preview changes and publish to share.
+  </Step>
+</Steps>
+
+For advanced editing, integrate custom scripts.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Add custom component in MDX
+  import { Callout } from './components';
+
+  <Callout kind="info">
+    This is a custom note.
+  </Callout>
+  ```
+  ```python
+  # Embed Python snippets in docs
+  def create_doc(title):
+      return f"# {title}\n\nAdd your content here."
+  ```
+</CodeGroup>
+
+<Callout kind="tip">
+  Enable real-time preview to see changes as you type.
+</Callout>
+
+## Folder and Page Organization
+
+Organize your documentation hierarchically with folders and pages. You nest content to match your project's structure.
+
+<Tabs>
+  <Tab title="Folders" icon="folder">
+    Create folders to group related pages.
+
+    ```
+    docs/
+    ├── api/
+    │   ├── endpoints.mdx
+    │   └── auth.mdx
+    └── guides/
+        └── quickstart.mdx
+    ```
+  </Tab>
+  <Tab title="Page Linking" icon="link">
+    Link pages using relative paths: `[Quickstart](./quickstart.mdx)`.
+  </Tab>
+  <Tab title="Custom Navigation" icon="menu">
+    Configure sidebar menus in `nav.json`.
+  </Tab>
+</Tabs>
+
+## Collaboration and Sharing
+
+Invite team members to collaborate in real time. You assign roles like editor or viewer and generate shareable links.
+
+<Columns cols={3}>
+  <Card title="Invite Users" icon="user-plus" href="#">
+    Add emails or generate invite links.
+  </Card>
+  <Card title="Permissions" icon="shield" href="#">
+    Set read/write access per folder.
+  </Card>
+  <Card title="Share Links" icon="share-2" href="#">
+    Public or password-protected previews.
+  </Card>
+</Columns>
+
+Use comments for feedback without altering content.
+
+## Search and Version Control
+
+Tyler Durden's search indexes all content for instant results. Filter by title, content, or tags.
+
+| Feature | Description |
+|---------|-------------|
+| Full-Text Search | Matches keywords across pages |
+| Filters | By folder, tag, or date |
+| History | View page versions |
+
+Track changes with built-in version control.
+
+<Expandable title="Advanced Version Control" default-open="false">
+  Revert to previous versions or compare diffs.
+
+  ```bash
+  # CLI command to checkout version
+  tyler version checkout v1.2.0 --page=features.mdx
+  ```
+
+  Merge conflicts resolve automatically in most cases.
+</Expandable>
+
+<Callout kind="info">
+  Search updates in real time as you add content.
+</Callout>

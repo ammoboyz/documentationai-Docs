@@ -1,0 +1,149 @@
+---
+title: Integrations and Extensions
+description: Connect Tyler Durden with third-party tools to enhance your documentation workflow.
+---
+
+## Overview
+
+Tyler Durden supports seamless integrations with popular third-party services. You can set up webhooks for real-time notifications, export your documentation to various formats, and use the API for custom extensions. These features extend your workflow beyond the core platform.
+
+<Callout kind="info">
+  Review your plan limits before enabling integrations, as some features require higher tiers.
+</Callout>
+
+## Supported Integrations
+
+Connect Tyler Durden to tools you already use. The platform offers native support for collaboration, version control, and notification services.
+
+<Columns cols={3}>
+  <Card title="Slack" icon="message-circle" href="https://slack.com" target="_blank">
+    Receive build notifications and updates directly in your Slack channels.
+  </Card>
+  <Card title="GitHub" icon="github" href="https://github.com" target="_blank">
+    Sync repositories for automated documentation deployments.
+  </Card>
+  <Card title="Notion" icon="book-open" href="https://notion.so" target="_blank">
+    Import and mirror documentation pages effortlessly.
+  </Card>
+</Columns>
+
+## Setting Up Webhooks
+
+Webhooks notify external services about events like page updates or new versions. Follow these steps to configure one.
+
+<Steps>
+  <Step title="Create Webhook" icon="plus">
+    Navigate to your workspace settings and select "Integrations" > "Webhooks". Click "New Webhook".
+  </Step>
+  <Step title="Configure Endpoint" icon="link">
+    Enter your endpoint URL, such as `https://your-webhook-url.com/tylerdurden`.
+  </Step>
+  <Step title="Select Events" icon="zap">
+    Choose events like `page.updated` or `build.completed`.
+  </Step>
+  <Step title="Test and Save" icon="check-circle">
+    Send a test payload and save the configuration.
+  </Step>
+</Steps>
+
+Verify the setup with this example payload:
+
+<CodeGroup tabs="JavaScript,cURL">
+  ```javascript
+  const payload = {
+    event: "page.updated",
+    data: {
+      pageId: "doc-123abc",
+      title: "Updated Guide",
+      workspaceId: "ws-456def"
+    },
+    timestamp: "2024-10-15T10:30:00Z"
+  };
+  ```
+  ```bash
+  curl -X POST https://your-webhook-url.com/tylerdurden \
+    -H "Content-Type: application/json" \
+    -d '{
+      "event": "page.updated",
+      "data": {"pageId": "doc-123abc"},
+      "timestamp": "2024-10-15T10:30:00Z"
+    }'
+  ```
+</CodeGroup>
+
+## Exporting Documentation
+
+Export your docs to share or archive them in other formats. Use the built-in exporter from the dashboard.
+
+<Tabs>
+  <Tab title="PDF" icon="file-text">
+    Select pages and export as PDF for print-ready documents.
+    
+    ```bash
+    curl -H "Authorization: Bearer YOUR_API_KEY" \
+      https://api.example.com/v1/docs/export/pdf \
+      -d '{"pageIds": ["doc-123", "doc-456"]}'
+    ```
+  </Tab>
+  <Tab title="Markdown" icon="file">
+    Get clean Markdown files for GitHub or static sites.
+    
+    ```bash
+    curl -H "Authorization: Bearer YOUR_API_KEY" \
+      https://api.example.com/v1/docs/export/md \
+      --data-urlencode "pages[]=doc-123"
+    ```
+  </Tab>
+  <Tab title="HTML" icon="globe">
+    Generate a static HTML site bundle.
+    
+    ```bash
+    curl -H "Authorization: Bearer YOUR_API_KEY" \
+      https://api.example.com/v1/docs/export/html \
+      -d '{"includeToc": true}'
+    ```
+  </Tab>
+</Tabs>
+
+## API Access for Custom Extensions
+
+Build custom integrations using the Tyler Durden REST API. Authenticate with an API key from your settings.
+
+<Request tabs="cURL,JavaScript">
+  ```bash
+  curl -X GET https://api.example.com/v1/workspaces \
+    -H "Authorization: Bearer YOUR_API_KEY"
+  ```
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/workspaces', {
+    headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+  });
+  const workspaces = await response.json();
+  ```
+</Request>
+
+<Response tabs="200">
+  ```json
+  {
+    "workspaces": [
+      {
+        "id": "ws-456def",
+        "name": "My Project",
+        "docsCount": 25
+      }
+    ]
+  }
+  ```
+</Response>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token obtained from your dashboard.
+</ParamField>
+
+<Expandable title="Advanced API Rate Limits" default-open="false">
+  The API enforces `{500}` requests per minute. Monitor usage via the `/v1/rate-limits` endpoint.
+</Expandable>
+
+<Callout kind="tip">
+  Explore the full API reference in [Quickstart](/quickstart) for more endpoints.
+</Callout>

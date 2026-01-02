@@ -1,0 +1,100 @@
+---
+title: Welcome to Tyler Durden
+description: Discover Tyler Durden, your default documentation space for organizing and managing project documentation with ease.
+---
+
+## Overview
+
+Tyler Durden provides a centralized space for your project documentation. You create, organize, and collaborate on docs using familiar MDX syntax. Manage multiple projects with versioned spaces, search across content, and integrate with your workflows seamlessly.
+
+This default space helps you get started quickly. Scale from single-page guides to comprehensive API references without complexity.
+
+## Key Features
+
+Tyler Durden simplifies documentation management with powerful tools.
+
+<Columns cols={3}>
+  <Card title="MDX-Powered Editing" icon="book-open" href="#mdx-editing">
+    Write rich docs using MDX components like `<Callout>`, `<Steps>`, and `<Tabs>`. Embed code, diagrams, and interactive elements directly.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#version-control">
+    Track changes with Git integration. Branch docs, merge updates, and rollback easily.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Invite team members, assign roles, and review changes in real-time.
+  </Card>
+</Columns>
+
+<Columns cols={2}>
+  <Card title="Search & Navigation" icon="search" href="#search">
+    Full-text search with syntax highlighting. Sidebar navigation auto-generates from headings.
+  </Card>
+  <Card title="Custom Domains" icon="globe" href="#domains">
+    Deploy to your domain at `docs.yourproject.com`.
+  </Card>
+</Columns>
+
+## Quick Start
+
+Get your first documentation space live in minutes.
+
+<Steps>
+  <Step title="Create Account" icon="user-plus">
+    Sign up at `https://tylerdurden.com/register` with your email.
+  </Step>
+  <Step title="New Space" icon="plus">
+    Click **New Space** and name it for your project, like "MyApp Docs".
+  </Step>
+  <Step title="Add Document" icon="file-text">
+    Create `introduction.mdx` and paste your content.
+  </Step>
+  <Step title="Publish" icon="rocket">
+    Hit **Publish** to generate your site at `https://docs.tylerdurden.com/myapp`.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="MDX Example">
+  ```mdx
+  ## Hello World
+
+  <Callout kind="success">
+    Your first doc is live!
+  </Callout>
+  ```
+</CodeGroup>
+
+## Why Choose Tyler Durden
+
+You select Tyler Durden for its balance of power and simplicity. Unlike static site generators requiring builds, Tyler Durden offers live editing and instant previews. Teams prefer it over wikis for MDX flexibility and Git workflows.
+
+<Callout kind="tip">
+  Start with the default space. Upgrade for teams and custom themes using brand color `#3B82F6`.
+</Callout>
+
+<Expandable title="Advanced Customization" default-open="false">
+
+Customize via config:
+
+```yaml
+theme:
+  primaryColor: "#3B82F6"
+features:
+  search: true
+  analytics: true
+```
+
+</Expandable>
+
+## Quick Navigation
+
+<Columns cols={3}>
+  <Card title="Quickstart Guide" icon="zap" href="/quickstart">
+    Set up your first project in 5 minutes.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your docs with API keys.
+  </Card>
+  <Card title="Changelog" icon="git-commit" href="/changelog">
+    Latest updates and features.
+  </Card>
+</Columns>

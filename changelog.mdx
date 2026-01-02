@@ -1,0 +1,138 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Tyler Durden.
+---
+
+## Recent Updates
+
+Stay informed about the latest releases. Tyler Durden evolves quickly with new features, performance improvements, and bug fixes. Check this page regularly or subscribe to notifications.
+
+<Callout kind="info">
+  You receive upgrade instructions via email when major versions release. Review migration guides before updating.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for teams, allowing multiple users to edit docs simultaneously.
+- Introduced custom brand color support – set your palette like `#3B82F6` in settings.
+- New embed blocks for videos and iframes directly in your documentation pages.
+
+## Improvements
+
+- Enhanced search with fuzzy matching for better results.
+- Optimized rendering speed by `>30%` for large doc sites.
+
+## Bug Fixes
+
+- Fixed parsing errors with nested code blocks.
+- Resolved mobile layout issues on documentation pages.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Tabs and Steps components now support icons from Lucide library.
+- Added changelog page template with `<Update>` components.
+
+## Bug Fixes
+
+- Corrected escaping for `{` and `}` in prose text.
+- Fixed frontmatter parsing with no blank lines.
+
+## Improvements
+
+- Better syntax highlighting for MDX code examples.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core MDX documentation engine with 15+ components.
+- YAML frontmatter validation and auto-parsing.
+- Integrated Mermaid diagrams as code blocks.
+
+## Breaking Changes
+
+- Updated attribute syntax to require double quotes only.
+
+## Initial Setup
+
+- Basic project templates for quickstart.
+
+</Update>
+
+## Upgrading Tyler Durden
+
+Follow these steps to upgrade safely.
+
+<Steps>
+  <Step title="Backup" icon="database">
+
+    Save your current configuration and docs.
+
+  </Step>
+  <Step title="Update Package" icon="package">
+
+    <CodeGroup tabs="npm,yarn">
+    ````bash
+    npm install tyler-durden@latest
+    ````
+
+    ````bash
+    yarn add tyler-durden@latest
+    ````
+    </CodeGroup>
+
+  </Step>
+  <Step title="Review Changes" icon="book-open">
+
+    Check this changelog for migration notes.
+
+  </Step>
+  <Step title="Test Locally" icon="play">
+
+    Run `npm run dev` and verify your site.
+
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Pin versions in `package.json` for production stability.
+</Callout>
+
+## Upcoming Changes
+
+Preview what's next for Tyler Durden.
+
+<Columns cols={2}>
+  <Card title="AI Assistant" icon="bot" href="#">
+    Auto-generate docs from code comments.
+  </Card>
+  <Card title="Versioned Docs" icon="git-branch" href="#">
+    Publish multiple doc versions side-by-side.
+  </Card>
+  <Card title="Advanced Analytics" icon="bar-chart-3" href="#">
+    Track doc views and engagement metrics.
+  </Card>
+  <Card title="Plugin System" icon="puzzle" href="#">
+    Extend with community plugins.
+  </Card>
+</Columns>
+
+<Expandable title="Contribution Guidelines" default-open="false">
+
+Submit issues or PRs on GitHub. Focus on:
+
+- New component support
+- Performance optimizations
+- Documentation improvements
+
+Use conventional commits for changelogs.
+
+</Expandable>
